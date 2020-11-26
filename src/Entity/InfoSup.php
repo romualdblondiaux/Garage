@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InfoSupRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -81,6 +83,16 @@ class InfoSup
      * @ORM\Column(type="text")
      */
     private $opt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="infoSupId", orphanRemoval=true)
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -239,6 +251,36 @@ class InfoSup
     public function setOpt(string $opt): self
     {
         $this->opt = $opt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setInfoSupId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getInfoSupId() === $this) {
+                $image->setInfoSupId(null);
+            }
+        }
 
         return $this;
     }

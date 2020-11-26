@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use Faker\Factory;
+use App\Entity\Image;
 use App\Entity\InfoSup;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -35,6 +36,15 @@ class AppFixtures extends Fixture
                 ->setOpt($opt);
 
             $manager->persist($info);
+
+            for($i=1; $i <= rand(2,5); $i++){
+                $image = new Image();
+
+                $image->setUrl('https://picsum.photos/200/200')
+                    ->setCaption($faker->sentence())
+                    ->setinfoSupId($info);
+                $manager->persist($image);  
+            }
         }
 
         $manager->flush();
