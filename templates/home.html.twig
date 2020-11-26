@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block body %}
+    <div class="slide">
+        <div class="container">
+            <div class="jumbotron mt-4">
+                <h1 class="display-5">Bienvenu dans mon garage</h1>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem inventore consequatur veniam quo fugit repellendus id, doloremque blanditiis tempora consequuntur excepturi doloribus mollitia. Tempora suscipit accusamus eos, veniam, fugiat perspiciatis voluptas saepe maiores corporis veritatis hic quasi natus pariatur labore neque recusandae quod enim doloribus minima, molestiae dolor iste cumque quibusdam vero. Ratione, voluptates corrupti maxime eius accusamus reprehenderit similique provident dicta ullam commodi officiis modi natus sequi culpa, asperiores rem veritatis ab praesentium a officia illum? Molestias atque error facilis est explicabo tempore cupiditate, fugiat nulla quasi id eos asperiores nobis commodi voluptatum nesciunt aspernatur quam quidem corporis?</p>
+                <hr class="my-4">
+                <p>Vous chercher une voiture? Et vous voulez voir tout nos modèles de stock? </p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Voir nos voitures</a>
+                </p>
+            </div>
+
+            <div id="carouselExampleInterval" class="carousel slideshow" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="1000">
+                    <img src="../public/images/685727.jpg" class="d-block w-70" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="2000">
+                    <img src="../public/images/685689.jpg" class="d-block w-70" alt="...">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                    <img src="../public/images/685689.jpg" class="d-block w-70" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>       
+    </div>
+{% endblock %}
