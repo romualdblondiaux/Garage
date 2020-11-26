@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos ventes{% endblock %}
+
+{% block body %}
+    <div class="slidehome">
+        <div class="container">
+            <h1 class="my-3">Voici nos ventes</h1>
+            <div class="row">
+            {% for vente in ventes %}
+                {# {% set url = path('info_show') %} #} 
+                <div class="col-md-4">
+                    <div class="card bg-secondary mb-3">
+                        <div class="card-header text-center">
+                            <h4>{{ vente.marque }} {{ vente.modele }}</h4>
+                        </div>
+                        <a href="#">
+                            <img src="{{ vente.img }}" alt="" class="starsimg">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                {{ vente.km | number_format(0, '',' ') }} KM
+                            </h4>
+                            <p class="card-text">
+                                <strong>{{vente.prix | number_format(0, '',' ')}} €</strong>
+                            </p>
+                            <a href="#" class="btn btn-info">En savoir plus</a>
+                        </div>
+                    </div>
+                </div> 
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
