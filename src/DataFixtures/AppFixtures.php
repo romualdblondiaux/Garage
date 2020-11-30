@@ -15,14 +15,18 @@ class AppFixtures extends Fixture
         $faker = Factory::create('FR-fr');
         
         // gestion des info
-        for($a = 1; $a <= 30; $a++){
+        for($a = 1; $a <= 10; $a++){
             $info = new InfoSup();
             
+            $modele = array('Huracán','Aventador','Veneno','Centenario','Sián');
+            $modelefaker = $faker->randomElement($modele);
+
             $description = $faker->paragraph(5);
+            
             $opt = '<p>'.join('</p><p>',$faker->paragraphs(4)).'</p>';
 
             $info->setMarque('Lamborghini')
-                ->setModele('Huracán')
+                ->setModele($modelefaker)
                 ->setImg('https://picsum.photos/1000/350')
                 ->setKm(rand(1,150000))
                 ->setPrix(rand(500000,1000000))

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\InfoSup;
+use App\Form\AnnonceType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,24 +43,13 @@ class HomeController extends AbstractController
 
     /**
      * Permet de créer une annonce
-     * @Route("/ventes/new", name="ventes_new")
+     * @Route("/ventes/new", name="vente_new")
      *
      * @return Response
      */
     public function create(EntityManagerInterface $manager, Request $request)
     {
-        $infoSup = new infoSup();
-        /*
-        $image1 = new Image();
-        $image1->setUrl('http://placehold.it/400x200')
-                ->setCaption('Titre 1');
-        $infoSup->addImage($image1);        
-
-        $image2 = new Image();
-        $image2->setUrl('http://placehold.it/400x200')
-                ->setCaption('Titre 2');
-        $infoSup->addImage($image2); 
-        */       
+        $infoSup = new infoSup();     
 
         $form = $this->createForm(AnnonceType::class, $infoSup);
 
@@ -70,7 +60,7 @@ class HomeController extends AbstractController
         if($form->isSubmitted() && $form->isValid()){
 
             foreach($infoSup->getImages() as $image){
-                $image->setInfoSup($infoSup);
+                $image->setInfoSupId($infoSup);
                 $manager->persist($image);
             }
 
@@ -82,7 +72,7 @@ class HomeController extends AbstractController
                 "L'annonce <strong>{$infoSup->getmarque()}</strong> a bien été enregistrée"
             );
 
-            return $this->redirectToRoute('ventes_info',[
+            return $this->redirectToRoute('vente_info',[
                 'id' => $infoSup->getId()
             ]);
 
