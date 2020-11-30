@@ -11,12 +11,10 @@
     background-size: cover;
 }
 
-.slidevente{
+.slidevente, .slideinfo{
     background-color: black;
     width: 100%;
     min-height: 100%;
-    background-position: center center;
-    background-size: cover;
 }
 
 .logo{
