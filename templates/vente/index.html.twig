@@ -3,19 +3,19 @@
 {% block title %}Nos ventes{% endblock %}
 
 {% block body %}
-    <div class="slidehome">
+    <div class="slidevente">
         <div class="container">
             <h1 class="my-3">Voici nos ventes</h1>
             <div class="row">
             {% for vente in ventes %}
-                {# {% set url = path('info_show') %} #} 
+                {% set url = path('vente_info', {'id': vente.id}) %}
                 <div class="col-md-4">
                     <div class="card bg-secondary mb-3">
                         <div class="card-header text-center">
                             <h4>{{ vente.marque }} {{ vente.modele }}</h4>
                         </div>
-                        <a href="#">
-                            <img src="{{ vente.img }}" alt="" class="starsimg">
+                        <a href="{{url}}">
+                            <img src="{{ vente.img }}" alt="" class="venteimg">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title">
@@ -24,7 +24,7 @@
                             <p class="card-text">
                                 <strong>{{vente.prix | number_format(0, '',' ')}} €</strong>
                             </p>
-                            <a href="#" class="btn btn-info">En savoir plus</a>
+                            <a href="{{url}}" class="btn btn-info">En savoir plus</a>
                         </div>
                     </div>
                 </div> 

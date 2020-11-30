@@ -18,7 +18,7 @@ class AppFixtures extends Fixture
         for($a = 1; $a <= 30; $a++){
             $info = new InfoSup();
             
-            $description = $faker->paragraph(2);
+            $description = $faker->paragraph(5);
             $opt = '<p>'.join('</p><p>',$faker->paragraphs(4)).'</p>';
 
             $info->setMarque('Lamborghini')
