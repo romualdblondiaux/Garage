@@ -38,7 +38,7 @@ class AnnonceType extends AbstractType
             ->add('carburant', TextType::class, $this->getConfiguration('Carburant :','Donnez le type de carburant de la voiture'))
             ->add('annee', TextType::class, $this->getConfiguration('Année :','Donnez l\'année de mise en circulation de la voiture'))
             ->add('transmission', TextType::class, $this->getConfiguration('Transmission :','Donnez le type de transmission de la voiture'))
-            ->add('description', TextareaType::class, $this->getConfiguration('Description :','Déscription détaillée de votre bien'))
+            ->add('description', TextareaType::class, $this->getConfiguration('Description :','Description détaillée de votre voiture'))
             ->add('opt', TextareaType::class, $this->getConfiguration('Option :','Détail des option de la voiture'))
             ->add('images',  CollectionType::class,
             [
