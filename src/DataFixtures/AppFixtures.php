@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
         $faker = Factory::create('FR-fr');
         
         // gestion des info
-        for($a = 1; $a <= 10; $a++){
+        for($a = 1; $a <= 12; $a++){
             $info = new InfoSup();
             
             $modele = array('Huracán','Aventador','Veneno','Centenario','Sián');
